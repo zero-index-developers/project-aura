@@ -6,19 +6,19 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Project AURA</title>
-    <link rel="icon" type="image/png" href="ALT\PNG\ICON.png">
+    <link rel="icon" type="image/png" href="assets/img/ICON.png">
 
     <!-- Open Graph Metadata for Facebook -->
     <meta property="og:title" content="Poster AR WebXR" />
     <meta property="og:description" content="Experience the immersive Poster AR WebXR project." />
-    <meta property="og:image" content="https://tombstonepup.github.io/ALT/PNG/Aura-og-image.png" />
+    <meta property="og:image" content="assets/img/Aura-og-image.png" />
     <meta property="og:url" content="https://tombstonepup.github.io/Poster-AR-WebXR/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card Metadata for Twitter -->
     <meta name="twitter:title" content="Poster AR WebXR" />
     <meta name="twitter:description" content="Experience the immersive Poster AR WebXR project." />
-    <meta name="twitter:image" content="https://tombstonepup.github.io/ALT/PNG/Aura-og-image.png" />
+    <meta name="twitter:image" content="assets/img/Aura-og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- three.js -->
@@ -326,7 +326,7 @@
 <body>
     <!-- Ambient Audio -->
     <audio id="background-audio" autoplay loop preload="auto">
-        <source src="ALT\audio\Space Ambient.mp3" type="audio/mp3">
+        <source src="assets/audio/Space Ambient.mp3" type="audio/mp3">
     </audio>
 
     <!-- Desktop Notification -->
@@ -339,7 +339,7 @@
 
     <!-- Title image placeholder -->
     <a href="https://www.facebook.com/profile.php?id=61566187001785" target="_blank">
-        <img src="ALT\PNG\title-aura.png" alt="Immerzion Title" class="title-image">
+        <img src="assets/img/title-aura.png" alt="Immerzion Title" class="title-image">
     </a>
 
     <div class="glow" id="title-glow"></div>
@@ -359,7 +359,7 @@
     <footer>
         <div class="footer-text">Developed by</div>
         <a href="https://www.facebook.com/profile.php?id=61566187001785" target="_blank">
-            <img src="ALT/PNG/skp-logo.png" alt="SkillUp Media Logo">
+            <img src="assets/img/skp-logo.png" alt="SkillUp Media Logo">
         </a>
     </footer>
     <!-- Aura effect at the bottom -->
@@ -425,7 +425,7 @@
         window.addEventListener('resize', resize);
 
         async function activateVR() {
-            window.location.href = 'ALT/vr-exp.html';
+            window.location.href = 'vr.html';
         }
 
         async function activateXR() {
@@ -436,7 +436,7 @@
             // Check if WebXR is unsupported or the browser is iOS/Safari
             if (isIOS || isSafari || !navigator.xr) {
                 console.warn("WebXR not supported on this device or browser. Redirecting...");
-                window.location.href = "ALT/ar-exp.html";
+                window.location.href = "ar.html";
                 return;
             }
 
@@ -449,7 +449,7 @@
 
                 // Load the logo GLB model
                 const logoLoader = new THREE.GLTFLoader();
-                logoLoader.load('models/LOGO.glb', function (gltf) {
+                logoLoader.load('assets/models/LOGO.glb', function (gltf) {
                     gltf.scene.position.set(0, -1, -1);
                     sceneXR.add(gltf.scene);
                 }, undefined, function (error) {
@@ -458,7 +458,7 @@
 
                 function loadModel(positionX, positionZ, imagePath, videoPath, rotation = 0) {
                     const loader = new THREE.GLTFLoader();
-                    loader.load('ALT/3D/poster-trailer.glb', function (gltf) {
+                    loader.load('assets/models/poster-trailer.glb', function (gltf) {
                         gltf.scene.position.set(positionX, -0.3, -1 + positionZ);
                         gltf.scene.scale.set(0.1, 0.1, 0.1);
                         gltf.scene.rotation.y = rotation;
@@ -498,8 +498,8 @@
 
                 // Loop through models and add video
                 for (let i = 0; i > -6; i--) {
-                    const imagePath = `ALT/POSTERS/photo${Math.abs(i - 0) + 1}.jpg`;
-                    const videoPath = `ALT/videos/trailer${Math.abs(i - 0) + 1}.mp4`; // Video paths
+                    const imagePath = `assets/img/posters/photo${Math.abs(i - 0) + 1}.jpg`;
+                    const videoPath = `assets/videos/trailer${Math.abs(i - 0) + 1}.mp4`; // Video paths
                     if (i > -3) {
                         loadModel(i, 0.5, imagePath, videoPath, 0);
                     } else {
@@ -549,7 +549,7 @@
                 console.error("An error occurred:", error);
                 if (error.name === "NotSupportedError" || error.message.includes("No runtimes supported")) {
                     console.warn("WebXR runtime not supported. Redirecting...");
-                    window.location.href = "ALT/ar-exp.html";
+                    window.location.href = "ar.html";
                 }
             }
         }

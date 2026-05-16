@@ -6,7 +6,7 @@
 
 **Project AURA** (Poster AR WebXR) is an immersive augmented and virtual reality experience designed for modern browsers. It allows users to interact with 3D models and digital posters in real-world space or fully immersive VR environments.
 
-![Project AURA Banner](ALT/PNG/Aura-og-image.png)
+![Project AURA Banner](assets/img/Aura-og-image.png)
 
 ---
 

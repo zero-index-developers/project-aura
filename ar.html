@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AR | SkillUp</title>
+  <script src="libs/aframe-1.2.0.min.js"></script>
+  <script src="libs/aframe-ar.js"></script>
+  <link rel="icon" type="image/png" href="assets/img/ICON.png">
+  <style>
+    /* Style for the overlay */
+    #overlay {
+      font-family: Arial, sans-serif;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      z-index: 1000;
+      display: none;
+      max-width: 80%;
+      box-sizing: border-box;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      #overlay {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+  <!-- Overlay Message -->
+  <div id="overlay">Landscape mode recommended for a better experience</div>
+
+  <a-scene embedded antialias="false" stats="false"
+    arjs="sourceType: webcam; smooth: true; smoothCount: 100; smoothTolerance: 0.05; smoothThreshold: 1; debugUIEnabled: false; cameraParametersUrl: libs/camera_para.dat;"
+    vr-mode-ui="enabled: false">
+    <a-video src="assets/videos/section-trailer.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0"></a-video>
+    <!-- piyesa -->
+    <a-marker type="pattern" url="assets/markers/pattern-G1.patt">
+      <a-plane scale="1 1.4 1" position="0 0 -0.55" rotation="-90 0 0"
+        material="shader: flat; src:assets/img/posters/photo1.jpg"></a-plane>
+      <a-video src="assets/videos/trailer1.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0"></a-video>
+      <a-entity gltf-model="assets/models/poster-trailer.glb" q scale="0.3 0.3 0.3" rotation="-90 0 0" position="0 0 1"></a-entity>
+    </a-marker>
+
+    <!-- bukas na -->
+    <a-marker type="pattern" url="assets/markers/pattern-G6.patt">
+      <a-plane scale="1 1.4 1" position="0 0 -0.55" rotation="-90 0 0"
+        material="shader: flat; src:assets/img/posters/photo2.jpg"></a-plane>
+      <a-video src="assets/videos/trailer2.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0" autoplay="true"
+        loop="true" muted="true"></a-video>
+      <a-entity gltf-model="assets/models/poster-trailer.glb" q scale="0.3 0.3 0.3" rotation="-90 0 0" position="0 0 1"></a-entity>
+    </a-marker>
+
+    <!-- huli ka ninang -->
+    <a-marker type="pattern" url="assets/markers/pattern-G2.patt">
+      <a-plane scale="1 1.4 1" position="0 0 -0.55" rotation="-90 0 0"
+        material="shader: flat; src:assets/img/posters/photo3.jpg"></a-plane>
+      <a-video src="assets/videos/trailer3.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0"></a-video>
+      <a-entity gltf-model="assets/models/poster-trailer.glb" q scale="0.3 0.3 0.3" rotation="-90 0 0" position="0 0 1"></a-entity>
+    </a-marker>
+
+    <!-- kita kits -->
+    <a-marker type="pattern" url="assets/markers/pattern-G4.patt">
+      <a-plane scale="1 1.4 1" position="0 0 -0.55" rotation="-90 0 0"
+        material="shader: flat; src:assets/img/posters/photo4.jpg"></a-plane>
+      <a-video src="assets/videos/trailer4.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0"></a-video>
+      <a-entity gltf-model="assets/models/poster-trailer.glb" q scale="0.3 0.3 0.3" rotation="-90 0 0" position="0 0 1"></a-entity>
+    </a-marker>
+
+    <!-- echoes of summer -->
+    <a-marker type="pattern" url="assets/markers/pattern-G5.patt">
+      <a-plane scale="1 1.4 1" position="0 0 -0.55" rotation="-90 0 0"
+        material="shader: flat; src:assets/img/posters/photo5.jpg"></a-plane>
+      <a-video src="assets/videos/trailer5.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0"></a-video>
+      <a-entity gltf-model="assets/models/poster-trailer.glb" q scale="0.3 0.3 0.3" rotation="-90 0 0" position="0 0 1"></a-entity>
+    </a-marker>
+
+    <!-- kaya pala -->
+    <a-marker type="pattern" url="assets/markers/pattern-G3.patt">
+      <a-plane scale="1 1.4 1" position="0 0 -0.55" rotation="-90 0 0"
+        material="shader: flat; src:assets/img/posters/photo6.jpg"></a-plane>
+      <a-video src="assets/videos/trailer6.mp4" scale="1 0.55 0" position="0 0 0.65" rotation="-90 0 0"></a-video>
+      <a-entity gltf-model="assets/models/poster-trailer.glb" q scale="0.3 0.3 0.3" rotation="-90 0 0" position="0 0 1"></a-entity>
+    </a-marker>
+
+    <!-- Camera to view the scene -->
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 5000);
+  </script>
+</body>
+
+</html>
